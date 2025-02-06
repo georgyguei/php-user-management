@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestion des utilisateurs</title>
+    <link rel="stylesheet" href="/views/styles/index.css" />
+  </head>
+  <body>
+    <h1>Gestion des utilisateurs</h1>
+
+    <form id="userForm">
+      <input type="hidden" id="userId" />
+      <input type="text" id="name" placeholder="Nom" required />
+      <input type="email" id="email" placeholder="Email" required />
+      <button type="submit">Ajouter</button>
+    </form>
+    <span id="errorMessage"></span>
+
+    <h2>Liste des utilisateurs</h2>
+    <ul id="userList"></ul>
+
+    <script src="/views/scripts/index.js"></script>
+  </body>
+</html>
