@@ -1,0 +1,34 @@
+# Composer dependencies
+/vendor/
+
+# Environment variables
+.env
+
+# PHPStorm project files
+.idea/
+
+# VSCode project files
+.vscode/
+
+# Log files
+*.log
+
+# Temporary files
+/tmp/
+*.tmp
+
+# Cache directories
+/cache/
+/node_modules/
+
+# PHPUnit result cache
+.phpunit.result.cache
+
+# Docker files
+docker-compose.override.yml
+
+# MacOS specific files
+.DS_Store
+
+# Other system files
+Thumbs.db

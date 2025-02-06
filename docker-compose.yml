@@ -1,0 +1,48 @@
+services:
+  web:
+    image: php:8.1-apache
+    restart: always
+    container_name: apache_php
+    volumes:
+      - ./src:/var/www/html
+    ports:
+      - "80:80"
+    depends_on:
+      - db
+    command: >
+      bash -c "docker-php-ext-install pdo pdo_mysql mysqli && 
+               a2enmod rewrite && 
+               apache2-foreground"
+
+  db:
+    image: mariadb:latest
+    restart: always
+    container_name: mariadb
+    volumes:
+      - db_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    environment:
+      MARIADB_ROOT_PASSWORD: root
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    restart: always
+    container_name: phpmyadmin
+    ports:
+      - "8080:80"
+    depends_on:
+      - db
+
+  # composer:
+  #   image: composer:latest
+  #   volumes:
+  #     - ./src:/app
+  #     - ./vendor:/app/vendor
+  #     - ./composer.json:/app/composer.json
+  #     - ./composer.lock:/app/composer.lock
+  #   working_dir: /app
+  #   command: ["composer", "install"]
+
+volumes:
+  db_data:
