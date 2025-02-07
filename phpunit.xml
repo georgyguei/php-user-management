@@ -1,14 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit bootstrap="vendor/autoload.php">
-    <php>
-        <env name="DB_HOST" value="localhost"/>
-        <env name="DB_NAME" value="test_user_management"/>
-        <env name="DB_USER" value="root"/>
-        <env name="DB_PASS" value="root"/>
-    </php>
-    <testsuites>
-        <testsuite name="Application Test Suite">
-            <directory>./tests</directory>
-        </testsuite>
-    </testsuites>
+  <testsuites>
+    <testsuite name="Application Test Suite">
+      <directory>./tests</directory>
+    </testsuite>
+  </testsuites>
 </phpunit>
