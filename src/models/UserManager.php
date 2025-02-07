@@ -53,8 +53,8 @@ class UserManager
   public function setDB()
   {
     try {
-      $hostname = "db"; // - use this IP if you are using Docker
-      // $hostname = "127.0.0.1"; // - use this IP if you are not using Docker
+      $hostname = "db"; // - // Use this hostname for the docker container
+      $hostname = "127.0.0.1"; // Use this hostname for the unit tests
       $base = 'user_management';
       $loginDB = "root";
       $passDB = "root";
