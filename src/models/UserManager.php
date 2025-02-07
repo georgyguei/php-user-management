@@ -54,7 +54,7 @@ class UserManager
   {
     try {
       $hostname = "db"; // - // Use this hostname for the docker container
-      $hostname = "127.0.0.1"; // Use this hostname for the unit tests
+      // $hostname = "127.0.0.1"; // Use this hostname for the unit tests
       $base = 'user_management';
       $loginDB = "root";
       $passDB = "root";
