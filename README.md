@@ -37,7 +37,7 @@ This project is a PHP-based user management system that allows you to add, updat
 ## Usage
 1. Access the web interface:
 
-Open your browser and go to [http://localhost](http://localhost).
+Open your browser and go to [`http://localhost`](http://localhost).
 
 2. **Add**, **update**, **delete**, and **list** users:
 
@@ -50,14 +50,34 @@ Run tests locally by ensure the MySQL server is running on localhost and run:
 composer test
 ```
 
+## Database Hostname Configuration
+
+In the [`UserManager.php`](src/models/UserManager.php) file, you can set the database hostname based on whether you are using Docker or not:
+```php
+<?php
+public function setDB()
+  {
+    try {
+      $hostname = "db"; // - // Use this hostname for the docker container
+      $hostname = "127.0.0.1"; // Use this hostname for the unit tests
+      (...)
+    } catch (\PDOException $e) {
+      (...)
+    }
+  }
+```
+
 ## Project Structure
-- [src](`src`) : Contains the PHP source code.
-- [tests](`tests`) : Contains the PHPUnit test cases.
-- [docker-compose.yml](`docker-compose.yml`) : Docker Compose configuration file.
-- [composer.json](`composer.json`) : Composer configuration file.
+
+- [`src`](src) : Contains the PHP source code.
+- [`tests`](tests) : Contains the PHPUnit test cases.
+- [`docker-compose.yml`](docker-compose.yml) : Docker Compose configuration file.
+- [`composer.json`](composer.json) : Composer configuration file.
 
 ## Contributing
+
 Contributions are welcome! Please open an issue or submit a pull request.
 
 ## License
+
 This project is licensed under the MIT License. See the LICENSE file for details.
