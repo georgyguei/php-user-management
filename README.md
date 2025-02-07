@@ -34,14 +34,35 @@ This project is a PHP-based user management system that allows you to add, updat
    docker-compose up -d
     ```
 
+4. Set up the database:
+
+    Access phpMyAdmin at [`http://localhost:8080`](http://localhost:8080) and log in with the following credentials:
+
+    - Username: `root`
+    - Password: `root`
+
+    Copy and paste the following SQL script into the SQL tab in phpMyAdmin to create the database and table:
+
+    ```sql
+    CREATE DATABASE user_management;
+
+    USE user_management;
+
+    CREATE TABLE users (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        name VARCHAR(100) NOT NULL,
+        email VARCHAR(150) NOT NULL UNIQUE
+    );
+    ```
+
 ## Usage
 1. Access the web interface:
 
-Open your browser and go to [`http://localhost`](http://localhost).
+    Open your browser and go to [`http://localhost`](http://localhost).
 
 2. **Add**, **update**, **delete**, and **list** users:
 
-Use the web interface to manage users.
+    Use the web interface to manage users.
 
 ## Running Tests
 Run tests locally by ensure the MySQL server is running on localhost and run:
@@ -73,6 +94,7 @@ public function setDB()
 - [`tests`](tests) : Contains the PHPUnit test cases.
 - [`docker-compose.yml`](docker-compose.yml) : Docker Compose configuration file.
 - [`composer.json`](composer.json) : Composer configuration file.
+- [`database.sql`](config/database.sql) :  SQL script for setting up the database.
 
 ## Contributing
 
